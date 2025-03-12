@@ -1,0 +1,11 @@
+#diretórios
+.venv/
+__pycache__/
+results/
+models/
+databases/
+labels/
+presentations/
+
+graphical_analysis.py
+results
