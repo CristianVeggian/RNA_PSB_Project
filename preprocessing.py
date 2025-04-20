@@ -51,15 +51,6 @@ def create_ICA_database(epochs, labels, info, pasta='ica_db_1', n_components = 6
     os.makedirs(os.path.join('databases', pasta, 'hands'), exist_ok=True)
     os.makedirs(os.path.join('databases', pasta, 'feet'), exist_ok=True)
 
-    import numpy as np
-
-    if np.isnan(epochs).any() or np.isinf(epochs).any():
-        print("Os dados contêm NaNs ou valores infinitos!")
-
-    variances = np.var(epochs, axis=(0, 2))  # Variância por canal
-    print("Variância mínima:", np.min(variances))
-    print("Variância máxima:", np.max(variances))
-
     for i, (epoch, label) in enumerate(zip(epochs, labels)):
         # Criar objeto ICA
         ica = ICA(n_components=n_components)
